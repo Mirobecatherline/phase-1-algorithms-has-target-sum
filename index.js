@@ -1,5 +1,16 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+
+  const known= {};
+  for (const number of array) {
+    
+    const complement = target - number;
+    
+    if (known[complement]) return true;
+    
+    known[number] = true;
+  }
+  // 1 step
+  return false;
 }
 
 /* 
@@ -8,7 +19,10 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
-*/
+  create an array that holds the known values
+  get a compilment number that when added to one other number in the array gives the target number
+  if number is compliment return true else return false and add number to object
+  */
 
 /*
   Add written explanation of your solution here
